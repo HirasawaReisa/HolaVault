@@ -1,0 +1,24 @@
+# Maven local installation & cache (project-local)
+.m2/
+
+# Maven Wrapper temp files
+.mvn/wrapper/maven-wrapper.jar
+
+# Build output
+target/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.class
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Uploads directory (user content)
+uploads/
+
+# SQLite database files (generated at runtime)
+data/

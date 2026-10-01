@@ -1,0 +1,65 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.halovault:halovault-backend >-------------------
+[INFO] Building HaloVault Backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.3.0:run (default-cli) > test-compile @ halovault-backend >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ halovault-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ halovault-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ halovault-backend ---
+[INFO] skip non existing resourceDirectory D:\WorkBuddyWorks\HaloVault\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ halovault-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.3.0:run (default-cli) < test-compile @ halovault-backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.3.0:run (default-cli) @ halovault-backend ---
+[INFO] Attaching agents: []
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.0)
+
+2026-06-26T19:21:51.968+08:00  INFO 30252 --- [           main] com.halovault.HaloVaultApplication       : Starting HaloVaultApplication using Java 23.0.1 with PID 30252 (D:\WorkBuddyWorks\HaloVault\backend\target\classes started by 25789 in D:\WorkBuddyWorks\HaloVault\backend)
+2026-06-26T19:21:51.970+08:00  INFO 30252 --- [           main] com.halovault.HaloVaultApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-06-26T19:21:52.792+08:00  INFO 30252 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-06-26T19:21:52.803+08:00  INFO 30252 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-26T19:21:52.803+08:00  INFO 30252 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-06-26T19:21:52.854+08:00  INFO 30252 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-26T19:21:52.855+08:00  INFO 30252 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 839 ms
+2026-06-26T19:21:53.264+08:00  INFO 30252 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-06-26T19:21:53.271+08:00  INFO 30252 --- [           main] com.halovault.HaloVaultApplication       : Started HaloVaultApplication in 1.646 seconds (process running for 1.929)
+2026-06-26T19:21:53.274+08:00  INFO 30252 --- [           main] c.h.config.DatabaseStartupRunner         : Initializing database before application starts...
+2026-06-26T19:21:53.274+08:00  INFO 30252 --- [           main] c.halovault.config.DatabaseInitializer   : Starting database initialization, target schema version: 1
+2026-06-26T19:21:53.500+08:00  INFO 30252 --- [           main] c.halovault.config.DatabaseInitializer   : Current schema version: 0
+2026-06-26T19:21:53.502+08:00  INFO 30252 --- [           main] c.halovault.config.DatabaseInitializer   : Applying migration v1
+2026-06-26T19:21:53.557+08:00  INFO 30252 --- [           main] c.halovault.config.DatabaseInitializer   : V1 schema: albums, artworks, checkin_records tables created
+2026-06-26T19:21:53.573+08:00  INFO 30252 --- [           main] c.halovault.config.DatabaseInitializer   : Migration v1 applied successfully
+2026-06-26T19:21:53.577+08:00  INFO 30252 --- [           main] c.halovault.config.DatabaseInitializer   : Database initialization complete, current version: 1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  45:28 min
+[INFO] Finished at: 2026-06-26T20:07:17+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.3.0:run (default-cli) on project halovault-backend: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

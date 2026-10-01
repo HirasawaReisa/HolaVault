@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ============================================================
+   HaloVault Design System
+   极简主义 · 黑白灰 + AI 电光蓝/霓虹全息
+   ============================================================ */
+
+/* ----- 设计令牌 (Design Tokens) ----- */
+@theme {
+  /* 背景色 */
+  --color-aurora-white: #F9F9F9;
+  --color-void-black: #121212;
+
+  /* 中性灰阶 */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #E5E5E5;
+  --color-gray-300: #D4D4D4;
+  --color-gray-400: #A3A3A3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  --color-gray-950: #0A0A0A;
+
+  /* AI 专属色 - 仅 AI 交互场景使用 */
+  --color-electric-blue: #2563EB;
+  --color-electric-blue-light: #3B82F6;
+  --color-electric-blue-dark: #1D4ED8;
+  --color-electric-blue-glow: #60A5FA;
+
+  /* 霓虹全息渐变起止色 */
+  --color-neon-cyan: #06B6D4;
+  --color-neon-violet: #8B5CF6;
+  --color-neon-pink: #EC4899;
+
+  /* 字体 */
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  /* 动效时长 */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* 动效曲线 - 物理阻尼感 */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-damped: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* 间距 */
+  --spacing-page-x: clamp(1rem, 5vw, 4rem);
+  --spacing-section: clamp(3rem, 8vh, 6rem);
+}
+
+/* ----- 全局基础样式 ----- */
+:root {
+  color-scheme: light dark;
+
+  /* 语义化 CSS 变量 - 供组件直接引用 */
+  --bg-primary: var(--color-aurora-white);
+  --bg-secondary: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --text-primary: #0A0A0A;
+  --text-secondary: #525252;
+  --text-tertiary: #737373;
+  --text-muted: #A3A3A3;
+  --border-primary: #E5E5E5;
+  --border-secondary: #F0F0F0;
+  --divider: #F0F0F0;
+
+  /* AI 语义变量 */
+  --ai-accent: var(--color-electric-blue);
+  --ai-accent-light: var(--color-electric-blue-light);
+  --ai-glow: var(--color-electric-blue-glow);
+  --ai-gradient: linear-gradient(135deg, #06B6D4, #2563EB, #8B5CF6, #EC4899);
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+}
+
+/* ----- 暗色模式 ----- */
+.dark {
+  --bg-primary: var(--color-void-black);
+  --bg-secondary: #1A1A1A;
+  --bg-elevated: #1E1E1E;
+  --text-primary: #F5F5F5;
+  --text-secondary: #A3A3A3;
+  --text-tertiary: #737373;
+  --text-muted: #525252;
+  --border-primary: #2A2A2A;
+  --border-secondary: #222222;
+  --divider: #222222;
+
+  --ai-glow: #93C5FD;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* ----- 全局重置与基础 ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition:
+    background-color var(--duration-normal) var(--ease-smooth),
+    color var(--duration-normal) var(--ease-smooth);
+}
+
+/* ----- 标题系统 ----- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+/* ----- 正文 ----- */
+p {
+  margin: 0;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ----- 链接 ----- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ----- 选择文本 ----- */
+::selection {
+  background-color: var(--color-electric-blue);
+  color: #FFFFFF;
+}
+
+/* ----- 滚动条 ----- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-gray-700);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+/* ============================================================
+   AI 专属样式 - 仅 AI 交互场景使用
+   ============================================================ */
+
+/* AI 文字高亮 - 电光蓝 */
+.ai-highlight {
+  color: var(--ai-accent);
+  font-weight: 500;
+  position: relative;
+}
+
+.ai-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ai-accent);
+  opacity: 0.4;
+  transition: opacity var(--duration-fast) var(--ease-smooth);
+}
+
+.ai-highlight:hover::after {
+  opacity: 0.8;
+}
+
+/* 霓虹全息文字 */
+.neon-text {
+  background: var(--ai-gradient);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holographic-shift 6s ease-in-out infinite;
+}
+
+@keyframes holographic-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* AI 发光边框 */
+.ai-glow-border {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.ai-glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--ai-gradient);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  transition: opacity var(--duration-normal) var(--ease-smooth);
+}
+
+.ai-glow-border:hover::before {
+  opacity: 1;
+}
+
+/* AI 脉冲圆点 */
+.ai-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ai-accent);
+  box-shadow: 0 0 0 0 var(--ai-glow);
+  animation: ai-pulse-ring 2s ease-in-out infinite;
+}
+
+@keyframes ai-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+/* ============================================================
+   工具类
+   ============================================================ */
+
+.bg-aurora { background-color: var(--bg-primary); }
+.bg-void { background-color: var(--color-void-black); }
+
+.container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: var(--spacing-page-x);
+}
+
+.section-gap {
+  padding-block: var(--spacing-section);
+}
+
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--ai-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

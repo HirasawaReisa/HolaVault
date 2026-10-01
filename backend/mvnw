@@ -1,0 +1,18 @@
+#!/bin/sh
+# ----------------------------------------------------------------------------
+# Maven Wrapper script (Unix)
+# Uses project-local Maven at .m2/wrapper/dists/apache-maven-3.9.9/
+# ----------------------------------------------------------------------------
+
+set -e
+
+MAVEN_PROJECTBASEDIR="$(cd "$(dirname "$0")" && pwd)"
+MAVEN_HOME="${MAVEN_PROJECTBASEDIR}/.m2/wrapper/dists/apache-maven-3.9.9"
+
+if [ ! -f "$MAVEN_HOME/bin/mvn" ]; then
+    echo "[ERROR] Maven not found at $MAVEN_HOME"
+    echo "Please run the setup script first or install Maven globally."
+    exit 1
+fi
+
+exec "$MAVEN_HOME/bin/mvn" "$@"
